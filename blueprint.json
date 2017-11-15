@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-11-15T19:55:04+11:00"
+    "timestamp": "2017-11-16T09:54:59+11:00"
   },
   "software": {
     "base": {
@@ -67,7 +67,7 @@
         "mandatory": true,
         "ask_at_build_time": true,
         "input": {
-          "type": "string",
+          "type": "country",
           "title": "Country",
           "hint": "2 Character Country Code  ",
           "placeholder": "XX",
@@ -147,7 +147,7 @@
         "name": "fetch_cert",
         "label": "Retrieve Cert",
         "return_type": "file",
-        "return_file_name": "certificate",
+        "return_file_name": "certificate.crt",
         "variables": [
           {
             "name": "cert_name",
@@ -284,7 +284,7 @@
             "name": "country",
             "mandatory": true,
             "input": {
-              "type": "string",
+              "type": "country",
               "label": "Country 2 letter code",
               "hint": "XX",
               "validation": {
