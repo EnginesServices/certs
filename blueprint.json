@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-11-15T19:45:10+11:00"
+    "timestamp": "2017-11-15T19:55:04+11:00"
   },
   "software": {
     "base": {
@@ -236,7 +236,7 @@
         "return_file_name": "enginesCA.crt"
       },
       {
-        "name": "se_default",
+        "name": "set_default",
         "label": "Set Default",
         "return_type": "plain_text",
         "enable_logging": true,
@@ -282,6 +282,7 @@
         "variables": [
           {
             "name": "country",
+            "mandatory": true,
             "input": {
               "type": "string",
               "label": "Country 2 letter code",
