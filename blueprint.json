@@ -12,11 +12,428 @@
       "version": {
         "major": 0,
         "minor": 0,
-        "level": "alpha",
+        "level": "beta",
         "patch": 0
       }
-    }
+    },
+    "software": {
+      "display": {
+        "title": "Certificate Management",
+        "label": "certs"
+      }
+    },
+    "timestamp": "2017-11-15T19:45:10+11:00"
   },
   "software": {
+    "base": {
+      "name": "certs",
+      "accepts": [
+        "ManagedEngine",
+        "ManagedService"
+      ],
+      "publisher_namespace": "EnginesSystem",
+      "type_path": "certs",
+      "service_handle_field": "cert_name",
+      "parent_image": "engines/servicebase",
+      "run_as_user": "certs",
+      "deployment_type": "worker",
+      "memory": {
+        "required": 32,
+        "recommended": 32
+      },
+      "persistent": true,
+      "attach_post_build": true
+    },
+    "scripts": {
+      "start": {
+        "language": "sh",
+        "content": "#!/bin/sh\r\n\r\nPID_FILE=/tmp/sleep.pid\r\nexport PID_FILE\r\n. /home/engines/functions/trap.sh\r\n\r\nstartup_complete\r\n\r\n\twhile ! test -f /home/engines/run/flags/sig_term -o -f /home/engines/run/flags/sig_quit\r\n\tdo \r\n\t    sleep 500 &\r\n\t    echo $! >/tmp/sleep.pid\r\n\t\twait \t\t\r\n\t\texit_code=$?\t\t\r\n\tdone\t\r\n\r\nshutdown_complete"
+      }
+    },
+    "system_packages": [
+      {
+        "package": "openssl"
+      }
+    ],
+    "constants": [
+      {
+        "name": "backup_support",
+        "value": "true"
+      }
+    ],
+    "consumer_params": [
+      {
+        "name": "country",
+        "mandatory": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string",
+          "title": "Country",
+          "hint": "2 Character Country Code  ",
+          "placeholder": "XX",
+          "validation": {
+            "pattern": "[a-zA-Z][a-zA-Z]",
+            "message": "Two Letters Only"
+          }
+        }
+      },
+      {
+        "name": "state",
+        "mandatory": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string",
+          "label": "State"
+        }
+      },
+      {
+        "name": "organisation",
+        "mandatory": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string",
+          "label": "Organization"
+        }
+      },
+      {
+        "name": "person",
+        "mandatory": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string",
+          "label": "person",
+          "title": "Person"
+        }
+      },
+      {
+        "name": "cert_name",
+        "mandatory": true,
+        "input": {
+          "type": "string",
+          "label": "cert_name",
+          "title": "Certificate name"
+        }
+      },
+      {
+        "name": "domainname",
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string",
+          "label": "domainname",
+          "title": "Domain name"
+        }
+      },
+      {
+        "name": "hostname",
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string",
+          "label": "hostname",
+          "title": "Hostname"
+        }
+      },
+      {
+        "name": "alt_names",
+        "input": {
+          "type": "string",
+          "label": "alt_names",
+          "title": "Alt names",
+          "hint": "space seperated list of hostnames"
+        }
+      }
+    ],
+    "actionators": [
+      {
+        "name": "fetch_cert",
+        "label": "Retrieve Cert",
+        "return_type": "file",
+        "return_file_name": "certificate",
+        "variables": [
+          {
+            "name": "cert_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Certificate name"
+            }
+          },
+          {
+            "name": "store",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Store",
+              "hint": "imported|container type/name "
+            }
+          }
+        ],
+        "script": {
+          "language": "sh"
+        }
+      },
+      {
+        "name": "import_cert",
+        "label": "Import certificate",
+        "return_type": "none",
+        "variables": [
+          {
+            "name": "certificate",
+            "mandatory": true,
+            "input": {
+              "type": "text",
+              "title": "Certificate"
+            }
+          },
+          {
+            "name": "private_key",
+            "mandatory": true,
+            "input": {
+              "type": "text",
+              "title": "Private key"
+            }
+          },
+          {
+            "name": "Password",
+            "input": {
+              "type": "password"
+            }
+          }
+        ]
+      },
+      {
+        "name": "list_certs",
+        "label": "List certificates",
+        "return_type": "json"
+      },
+      {
+        "name": "remove_cert",
+        "label": "Remove Certificate",
+        "return_type": "none",
+        "variables": [
+          {
+            "name": "cert_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Certificate name"
+            }
+          },
+          {
+            "name": "store",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Store",
+              "hint": "imported|container_type/name"
+            }
+          }
+        ]
+      },
+      {
+        "name": "system_ca",
+        "label": "System CA",
+        "return_type": "file",
+        "return_file_name": "enginesCA.crt"
+      },
+      {
+        "name": "se_default",
+        "label": "Set Default",
+        "return_type": "plain_text",
+        "enable_logging": true,
+        "variables": [
+          {
+            "name": "target",
+            "value": "default",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Target",
+              "hint": "default|service"
+            }
+          },
+          {
+            "name": "cert_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Certificate name"
+            }
+          },
+          {
+            "name": "store",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Store",
+              "hint": "imported| ctype/cname/  "
+            }
+          }
+        ]
+      },
+      {
+        "name": "list_services_defaults",
+        "label": "List services default certificates",
+        "return_type": "json"
+      },
+      {
+        "name": "create_certificate",
+        "label": "Create certificate",
+        "return_type": "json",
+        "variables": [
+          {
+            "name": "country",
+            "input": {
+              "type": "string",
+              "label": "Country 2 letter code",
+              "hint": "XX",
+              "validation": {
+                "pattern": "[a-zA-Z][a-zA-Z]",
+                "message": "Two letters only"
+              }
+            }
+          },
+          {
+            "name": "State",
+            "input": {
+              "type": "string",
+              "label": "State"
+            }
+          },
+          {
+            "name": "organisation",
+            "input": {
+              "type": "string",
+              "label": "Organization"
+            }
+          },
+          {
+            "name": "city",
+            "input": {
+              "type": "string",
+              "label": "City"
+            }
+          },
+          {
+            "name": "cert_name",
+            "input": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "domainname",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "title": "Domain name"
+            }
+          },
+          {
+            "name": "hostname",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "title": "Hostname"
+            }
+          },
+          {
+            "name": "alt_names",
+            "input": {
+              "type": "string",
+              "label": "Alternative names",
+              "hint": "List of space seperated names   "
+            }
+          },
+          {
+            "name": "person",
+            "input": {
+              "type": "string",
+              "label": "Person"
+            }
+          }
+        ]
+      }
+    ],
+    "configurators": [
+      {
+        "name": "system_ca",
+        "label": "Root Certificate Authority",
+        "no_save": true,
+        "variables": [
+          {
+            "name": "cert_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "cert_name",
+              "title": "cert name name  "
+            }
+          },
+          {
+            "name": "domainname",
+            "input": {
+              "type": "string",
+              "label": "domainname",
+              "title": "Domain name"
+            }
+          },
+          {
+            "name": "person",
+            "input": {
+              "type": "string",
+              "label": "person",
+              "title": "Person"
+            }
+          },
+          {
+            "name": "organisation",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "organisation",
+              "title": "Organization"
+            }
+          },
+          {
+            "name": "city",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "city",
+              "title": "City"
+            }
+          },
+          {
+            "name": "state",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "state",
+              "title": "State"
+            }
+          },
+          {
+            "name": "country",
+            "input": {
+              "type": "string",
+              "label": "country",
+              "title": "Country 2 letter code",
+              "placeholder": "xx",
+              "validation": {
+                "pattern": "[a-zA-Z][a-zA-Z]",
+                "message": "2 letter code only"
+              }
+            }
+          }
+        ],
+        "set_script": {
+          "language": "sh",
+          "content": "#!/bin/bash\r\n\r\nif test -f /home/certs/store/private/ca/keys/system_CA.key\r\n\tthen\t\r\n\t#\techo \"CA Exists\"\r\n\t#\texit 127\r\n cp /home/certs/store/public/ca/certs/system_CA.pem  /home/certs/store/public/ca/certs/system_CA.pem.bak\r\n #\trm /home/certs/store/public/ca/certs/system_CA.pem\r\n cp /home/certs/store/private/ca/keys/system_CA.key  /home/certs/store/private/ca/keys/system_CA.key.bak\r\n #rm /home/certs/store/private/ca/keys/system_CA.key \r\nfi\r\n\r\n\r\n. /home/engines/functions/params_to_env.sh\r\nPARAMS_FILE=/home/engines/scripts/configurators/saved/ca_setup\r\nparms_to_file_and_env\r\n\r\nrequired_values=\"cert_name domainname country state city organisation person\"\r\ncheck_required_values\r\n\r\nCERT_DEFAULTS_FILE=/home/certs/store/default_cert_details\r\necho country=\\\"$country\\\" > $CERT_DEFAULTS_FILE\r\necho state=\\\"$state\\\" >> $CERT_DEFAULTS_FILE\r\necho organisation=\\\"$organisation\\\" >> $CERT_DEFAULTS_FILE\r\necho city=\\\"$city\\\" >> $CERT_DEFAULTS_FILE\r\necho person=\\\"$person\\\" >> $CERT_DEFAULTS_FILE\r\n \r\ncp /home/engines/scripts/configurators/saved/ca_setup /home/engines/scripts/configurators/saved/ca_params\r\n\r\n\r\necho $country >/home/engines/scripts/configurators/saved/ca_setup\r\necho $state >>/home/engines/scripts/configurators/saved/ca_setup\r\necho $city >>/home/engines/scripts/configurators/saved/ca_setup\r\necho $person >>/home/engines/scripts/configurators/saved/ca_setup\r\necho $organisation >>/home/engines/scripts/configurators/saved/ca_setup\r\ncp /home/engines/scripts/configurators/saved/ca_setup /home/engines/scripts/configurators/saved/cn_defaults\r\necho $domainname CA  >>/home/engines/scripts/configurators/saved/ca_setup\r\necho \"\" >>/home/engines/scripts/configurators/saved/ca_setup\r\necho \"\" >>/home/engines/scripts/configurators/saved/ca_setup\r\nmkdir -p /home/certs/store/public/ca/keys/\r\nmkdir -p /home/certs/store/public/ca/certs\r\nmkdir -p /home/certs/store/private/ca/keys/\r\nchmod og-rwx  /home/certs/store/private/ca/keys/\r\n \r\nopenssl genrsa -out /home/certs/store/private/ca/keys/system_CA.key 2048\r\nopenssl req -x509 -new -nodes -key /home/certs/store/private/ca/keys/system_CA.key -days 1024 -sha256 -out /home/certs/store/public/ca/certs/system_CA.pem < /home/engines/scripts/configurators/saved/ca_setup\r\n        \r\nchmod og-r /home/certs/store/private/ca/keys/system_CA.key        \r\n        "
+        },
+        "read_script": {
+          "language": "sh",
+          "content": "#!/bin/sh\r\n#cat /home/certs/store/public/ca/certs/system_CA.pem \r\ncat /home/engines/scripts/configurators/saved/ca_params"
+        }
+      }
+    ]
   }
 }
