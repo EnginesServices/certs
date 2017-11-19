@@ -12,7 +12,7 @@
       "version": {
         "major": 0,
         "minor": 0,
-        "level": "beta",
+        "level": "rc",
         "patch": 0
       }
     },
@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-11-16T09:54:59+11:00"
+    "timestamp": "2017-11-19T11:38:29+11:00"
   },
   "software": {
     "base": {
