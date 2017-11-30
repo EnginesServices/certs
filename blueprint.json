@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-11-19T11:38:29+11:00"
+    "timestamp": "2017-11-30T14:21:08+11:00"
   },
   "software": {
     "base": {
@@ -352,6 +352,38 @@
             }
           }
         ]
+      },
+      {
+        "name": "add_cert_to_wap",
+        "label": "Add certificate to Wap",
+        "return_type": "json",
+        "enable_logging": true,
+        "variables": [
+          {
+            "name": "StorePref",
+            "input": {
+              "type": "string",
+              "label": "Store"
+            }
+          },
+          {
+            "name": "cert_name",
+            "input": {
+              "type": "string",
+              "label": "Certificate name"
+            }
+          },
+          {
+            "name": "fqdn",
+            "input": {
+              "type": "string",
+              "label": "domain name or FQDN to apply Certificate to"
+            }
+          }
+        ],
+        "script": {
+          "language": "sh"
+        }
       }
     ],
     "configurators": [
