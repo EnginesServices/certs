@@ -2,8 +2,8 @@
   "schema": {
     "type": "service_blueprint",
     "version": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 1
     },
     "origin": "Engines Developer Studio 0.2"
   },
@@ -22,25 +22,24 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-11-30T14:21:08+11:00"
+    "timestamp": "2017-11-30T20:12:32+11:00"
   },
   "software": {
     "base": {
       "name": "certs",
-      "accepts": [
-        "ManagedEngine",
-        "ManagedService"
-      ],
       "publisher_namespace": "EnginesSystem",
       "type_path": "certs",
       "service_handle_field": "cert_name",
       "parent_image": "engines/servicebase",
-      "run_as_user": "certs",
       "deployment_type": "worker",
+      "set_state": "running",
       "memory": {
         "required": 32,
         "recommended": 32
       },
+      "run_as_user": "certs"
+    },
+    "disposition": {
       "persistent": true,
       "attach_post_build": true
     },
@@ -61,10 +60,17 @@
         "value": "true"
       }
     ],
+    "consumers": {
+      "accepts": [
+        "ManagedEngine",
+        "ManagedService"
+      ]
+    },
     "consumer_params": [
       {
         "name": "country",
         "mandatory": true,
+        "immutable": true,
         "ask_at_build_time": true,
         "input": {
           "type": "country",
@@ -80,6 +86,7 @@
       {
         "name": "state",
         "mandatory": true,
+        "immutable": true,
         "ask_at_build_time": true,
         "input": {
           "type": "string",
@@ -89,6 +96,7 @@
       {
         "name": "organisation",
         "mandatory": true,
+        "immutable": true,
         "ask_at_build_time": true,
         "input": {
           "type": "string",
@@ -98,6 +106,7 @@
       {
         "name": "person",
         "mandatory": true,
+        "immutable": true,
         "ask_at_build_time": true,
         "input": {
           "type": "string",
@@ -108,6 +117,7 @@
       {
         "name": "cert_name",
         "mandatory": true,
+        "immutable": true,
         "input": {
           "type": "string",
           "label": "cert_name",
@@ -116,6 +126,8 @@
       },
       {
         "name": "domainname",
+        "mandatory": true,
+        "immutable": true,
         "ask_at_build_time": true,
         "input": {
           "type": "string",
@@ -125,6 +137,7 @@
       },
       {
         "name": "hostname",
+        "immutable": true,
         "ask_at_build_time": true,
         "input": {
           "type": "string",
@@ -134,6 +147,7 @@
       },
       {
         "name": "alt_names",
+        "immutable": true,
         "input": {
           "type": "string",
           "label": "alt_names",
@@ -467,6 +481,31 @@
           "content": "#!/bin/sh\r\n#cat /home/certs/store/public/ca/certs/system_CA.pem \r\ncat /home/engines/scripts/configurators/saved/ca_params"
         }
       }
+    ],
+    "capabilities": {
+      "allow": "selected",
+      "selected": [
+        "SETPCAP",
+        "MKNOD",
+        "AUDIT_WRITE",
+        "CHOWN",
+        "NET_RAW",
+        "DAC_OVERRIDE",
+        "FOWNER",
+        "FSETID",
+        "KILL",
+        "SETGID",
+        "SETUID",
+        "NET_BIND_SERVICE",
+        "SYS_CHROOT",
+        "SETFCAP"
+      ]
+    },
+    "log_directories": [
+      "/var/log"
+    ],
+    "build_dependencies": [
+      "engines/servicebase"
     ]
   }
 }
