@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-11-30T20:12:32+11:00"
+    "timestamp": "2017-12-02T15:45:42+11:00"
   },
   "software": {
     "base": {
@@ -211,6 +211,21 @@
             "input": {
               "type": "password"
             }
+          },
+          {
+            "name": "cert_type",
+            "value": "import",
+            "input": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "target",
+            "input": {
+              "type": "string",
+              "title": "Target service",
+              "hint": "blank|service name|default"
+            }
           }
         ]
       },
@@ -363,6 +378,13 @@
             "input": {
               "type": "string",
               "label": "Person"
+            }
+          },
+          {
+            "name": "cert_type",
+            "value": "user",
+            "input": {
+              "type": "hidden"
             }
           }
         ]
