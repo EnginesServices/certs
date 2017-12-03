@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-12-03T17:06:18+11:00"
+    "timestamp": "2017-12-03T17:13:13+11:00"
   },
   "software": {
     "base": {
@@ -396,7 +396,8 @@
         "enable_logging": true,
         "variables": [
           {
-            "name": "StorePref",
+            "name": "store",
+            "mandatory": true,
             "input": {
               "type": "string",
               "label": "Store"
@@ -404,6 +405,7 @@
           },
           {
             "name": "cert_name",
+            "mandatory": true,
             "input": {
               "type": "string",
               "label": "Certificate name"
@@ -411,6 +413,7 @@
           },
           {
             "name": "fqdn",
+            "mandatory": true,
             "input": {
               "type": "string",
               "label": "domain name or FQDN to apply Certificate to"
