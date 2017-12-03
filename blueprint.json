@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-12-03T17:13:13+11:00"
+    "timestamp": "2017-12-03T19:34:09+11:00"
   },
   "software": {
     "base": {
@@ -118,6 +118,7 @@
         "name": "cert_name",
         "mandatory": true,
         "immutable": true,
+        "ask_at_build_time": true,
         "input": {
           "type": "string",
           "label": "cert_name",
@@ -451,6 +452,22 @@
         "script": {
           "language": "sh"
         }
+      },
+      {
+        "name": "rm_cert_from_wap",
+        "label": "Remove certificate from wap",
+        "return_type": "json",
+        "enable_logging": true,
+        "variables": [
+          {
+            "name": "fqdn",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "fqdn or domain"
+            }
+          }
+        ]
       }
     ],
     "configurators": [
