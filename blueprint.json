@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-12-02T15:45:42+11:00"
+    "timestamp": "2017-12-03T17:06:18+11:00"
   },
   "software": {
     "base": {
@@ -159,9 +159,9 @@
     "actionators": [
       {
         "name": "fetch_cert",
-        "label": "Retrieve Cert",
+        "label": "Retrieve certificate",
         "return_type": "file",
-        "return_file_name": "certificate.crt",
+        "return_file_name": "certificate.pem",
         "variables": [
           {
             "name": "cert_name",
@@ -414,6 +414,34 @@
             "input": {
               "type": "string",
               "label": "domain name or FQDN to apply Certificate to"
+            }
+          }
+        ],
+        "script": {
+          "language": "sh"
+        }
+      },
+      {
+        "name": "fetch_key",
+        "label": "Retrieve private key",
+        "return_type": "file",
+        "return_file_name": "privatekey.pem",
+        "enable_logging": true,
+        "variables": [
+          {
+            "name": "key_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "title": "Key name"
+            }
+          },
+          {
+            "name": "store",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "title": "Store"
             }
           }
         ],
