@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2017-12-03T19:34:09+11:00"
+    "timestamp": "2018-01-22T11:05:22+11:00"
   },
   "software": {
     "base": {
@@ -162,7 +162,7 @@
         "name": "fetch_cert",
         "label": "Retrieve certificate",
         "return_type": "file",
-        "return_file_name": "certificate.pem",
+        "return_file_name": "Engines_Builder(action_val(fetch_cert,cert_name)).pem",
         "variables": [
           {
             "name": "cert_name",
@@ -383,9 +383,17 @@
           },
           {
             "name": "cert_type",
-            "value": "user",
+            "value": "generated",
             "input": {
               "type": "hidden"
+            }
+          },
+          {
+            "name": "wild",
+            "value": "false",
+            "input": {
+              "type": "checkbox_boolean",
+              "label": "Wild card"
             }
           }
         ]
