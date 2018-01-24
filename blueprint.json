@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-22T11:05:22+11:00"
+    "timestamp": "2018-01-24T13:12:43+11:00"
   },
   "software": {
     "base": {
@@ -155,6 +155,15 @@
           "title": "Alt names",
           "hint": "space seperated list of hostnames"
         }
+      },
+      {
+        "name": "install_target",
+        "value": "Install target",
+        "immutable": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string"
+        }
       }
     ],
     "actionators": [
@@ -221,7 +230,7 @@
             }
           },
           {
-            "name": "target",
+            "name": "install_target",
             "input": {
               "type": "string",
               "title": "Target service",
@@ -272,7 +281,7 @@
         "enable_logging": true,
         "variables": [
           {
-            "name": "target",
+            "name": "install_target",
             "value": "default",
             "mandatory": true,
             "input": {
