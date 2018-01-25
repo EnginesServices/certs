@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-26T09:16:14+11:00"
+    "timestamp": "2018-01-26T10:15:21+11:00"
   },
   "software": {
     "base": {
@@ -510,6 +510,10 @@
             }
           }
         ]
+      },
+      {
+        "name": "deployed_certs",
+        "return_type": "json"
       }
     ],
     "configurators": [
