@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-24T13:12:43+11:00"
+    "timestamp": "2018-01-25T15:25:49+11:00"
   },
   "software": {
     "base": {
@@ -287,7 +287,7 @@
             "input": {
               "type": "string",
               "label": "Target",
-              "hint": "default|service"
+              "hint": "services|system_services|apps/container_name | all"
             }
           },
           {
@@ -299,12 +299,19 @@
             }
           },
           {
-            "name": "store",
+            "name": "cert_type",
             "mandatory": true,
             "input": {
-              "type": "string",
-              "label": "Store",
-              "hint": "imported| ctype/cname/  "
+              "type": "select",
+              "label": "Certificate type",
+              "hint": "imported| ctype/cname/  ",
+              "collection": {
+                "items": {
+                  "generated": "System generated",
+                  "imported": "Imported",
+                  "user": "User generated"
+                }
+              }
             }
           }
         ]
