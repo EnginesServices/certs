@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-26T08:25:00+11:00"
+    "timestamp": "2018-01-26T09:16:14+11:00"
   },
   "software": {
     "base": {
@@ -374,12 +374,6 @@
             }
           },
           {
-            "name": "cert_name",
-            "input": {
-              "type": "string"
-            }
-          },
-          {
             "name": "domainname",
             "mandatory": true,
             "input": {
@@ -486,11 +480,14 @@
             }
           },
           {
-            "name": "store",
-            "mandatory": true,
+            "name": "cert_type",
             "input": {
-              "type": "string",
-              "title": "Store"
+              "type": "select",
+              "collection": {
+                "items": {
+                  "user": "User generated"
+                }
+              }
             }
           }
         ],
