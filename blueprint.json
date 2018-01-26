@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-26T13:59:49+11:00"
+    "timestamp": "2018-01-26T14:07:26+11:00"
   },
   "software": {
     "base": {
@@ -587,7 +587,7 @@
           {
             "name": "consumer_type",
             "input": {
-              "type": "boolean",
+              "type": "select",
               "title": "Consumer type",
               "comment": "required for generated or live certs",
               "collection": {
