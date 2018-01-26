@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-26T13:19:36+11:00"
+    "timestamp": "2018-01-26T13:29:00+11:00"
   },
   "software": {
     "base": {
@@ -258,8 +258,8 @@
         "return_type": "json"
       },
       {
-        "name": "remove_cert",
-        "label": "Remove Certificate",
+        "name": "remove_cert_from_store",
+        "label": "Remove Certificate from Store",
         "return_type": "none",
         "variables": [
           {
@@ -519,6 +519,43 @@
       {
         "name": "deployed_certs",
         "return_type": "json"
+      },
+      {
+        "name": "remove_live_cert",
+        "label": "Remove Lve Cert",
+        "return_type": "json",
+        "variables": [
+          {
+            "name": "consumer_type",
+            "mandatory": true,
+            "input": {
+              "type": "select",
+              "label": "Consumer type",
+              "collection": {
+                "items": {
+                  "service": "Service",
+                  "app": "App"
+                }
+              }
+            }
+          },
+          {
+            "name": "consumer_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Consumer name"
+            }
+          },
+          {
+            "name": "fqdn",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Certificate common name or fqdn"
+            }
+          }
+        ]
       }
     ],
     "configurators": [
