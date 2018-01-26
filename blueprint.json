@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-26T13:29:00+11:00"
+    "timestamp": "2018-01-26T13:59:49+11:00"
   },
   "software": {
     "base": {
@@ -522,7 +522,7 @@
       },
       {
         "name": "remove_live_cert",
-        "label": "Remove Lve Cert",
+        "label": "Remove live Cert",
         "return_type": "json",
         "variables": [
           {
@@ -553,6 +553,58 @@
             "input": {
               "type": "string",
               "label": "Certificate common name or fqdn"
+            }
+          }
+        ]
+      },
+      {
+        "name": "cert_details",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "cert_location",
+            "mandatory": true,
+            "input": {
+              "type": "select",
+              "collection": {
+                "items": {
+                  "live": "Certificate in use",
+                  "user": "User generated",
+                  "imported": "Imported",
+                  "generated": "System generated"
+                }
+              }
+            }
+          },
+          {
+            "name": "fqdn",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Certificate common name or fqdn"
+            }
+          },
+          {
+            "name": "consumer_type",
+            "input": {
+              "type": "boolean",
+              "title": "Consumer type",
+              "comment": "required for generated or live certs",
+              "collection": {
+                "include_blank": true,
+                "items": {
+                  "service": "Service",
+                  "app": "App"
+                }
+              }
+            }
+          },
+          {
+            "name": "consumer_name",
+            "input": {
+              "type": "string",
+              "label": "Consumer name",
+              "comment": "app or service name"
             }
           }
         ]
