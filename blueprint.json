@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-26T10:15:21+11:00"
+    "timestamp": "2018-01-26T13:19:36+11:00"
   },
   "software": {
     "base": {
@@ -263,20 +263,25 @@
         "return_type": "none",
         "variables": [
           {
-            "name": "cert_name",
+            "name": "fqdn",
             "mandatory": true,
             "input": {
               "type": "string",
-              "label": "Certificate name"
+              "label": "Certificate common name /"
             }
           },
           {
-            "name": "store",
+            "name": "cert_type",
             "mandatory": true,
             "input": {
-              "type": "string",
-              "label": "Store",
-              "hint": "imported|container_type/name"
+              "type": "select",
+              "label": "Certificate type",
+              "collection": {
+                "items": {
+                  "user": "User generated",
+                  "imported": "Imported"
+                }
+              }
             }
           }
         ]
