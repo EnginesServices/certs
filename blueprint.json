@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-26T14:07:26+11:00"
+    "timestamp": "2018-01-30T10:12:06+11:00"
   },
   "software": {
     "base": {
@@ -126,14 +126,13 @@
         }
       },
       {
-        "name": "domainname",
+        "name": "domain_name",
         "mandatory": true,
         "immutable": true,
         "ask_at_build_time": true,
         "input": {
           "type": "string",
-          "label": "domainname",
-          "title": "Domain name"
+          "label": "Domain name"
         }
       },
       {
