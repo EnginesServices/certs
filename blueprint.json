@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-02-03T15:55:40+11:00"
+    "timestamp": "2018-02-03T17:05:08+11:00"
   },
   "software": {
     "base": {
@@ -115,23 +115,13 @@
         }
       },
       {
-        "name": "domain_name",
+        "name": "common_name",
         "mandatory": true,
         "immutable": true,
         "ask_at_build_time": true,
         "input": {
           "type": "string",
           "label": "Domain name"
-        }
-      },
-      {
-        "name": "hostname",
-        "immutable": true,
-        "ask_at_build_time": true,
-        "input": {
-          "type": "string",
-          "label": "hostname",
-          "title": "Hostname"
         }
       },
       {
@@ -162,7 +152,7 @@
         "return_file_name": "Engines_Builder(action_val(fetch_cert,cert_name)).pem",
         "variables": [
           {
-            "name": "cert_name",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
@@ -251,7 +241,7 @@
         "return_type": "none",
         "variables": [
           {
-            "name": "fqdn",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
@@ -297,7 +287,7 @@
             }
           },
           {
-            "name": "cert_name",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
@@ -367,11 +357,12 @@
             }
           },
           {
-            "name": "domain_name",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
-              "title": "Domain name"
+              "title": "Common name",
+              "comment": "usually the fqdn"
             }
           },
           {
@@ -436,7 +427,7 @@
             }
           },
           {
-            "name": "cert_name",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
@@ -465,7 +456,7 @@
         "enable_logging": true,
         "variables": [
           {
-            "name": "key_name",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
@@ -495,7 +486,7 @@
         "enable_logging": true,
         "variables": [
           {
-            "name": "fqdn",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
@@ -536,7 +527,7 @@
             }
           },
           {
-            "name": "fqdn",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
@@ -565,7 +556,7 @@
             }
           },
           {
-            "name": "fqdn",
+            "name": "common_name",
             "mandatory": true,
             "input": {
               "type": "string",
