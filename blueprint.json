@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-01-30T10:14:17+11:00"
+    "timestamp": "2018-02-03T15:55:40+11:00"
   },
   "software": {
     "base": {
@@ -112,17 +112,6 @@
           "type": "string",
           "label": "person",
           "title": "Person"
-        }
-      },
-      {
-        "name": "cert_name",
-        "mandatory": true,
-        "immutable": true,
-        "ask_at_build_time": true,
-        "input": {
-          "type": "string",
-          "label": "cert_name",
-          "title": "Certificate name"
         }
       },
       {
