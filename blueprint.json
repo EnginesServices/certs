@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-02-03T17:05:08+11:00"
+    "timestamp": "2018-02-03T17:08:30+11:00"
   },
   "software": {
     "base": {
@@ -486,7 +486,7 @@
         "enable_logging": true,
         "variables": [
           {
-            "name": "common_name",
+            "name": "fqdn",
             "mandatory": true,
             "input": {
               "type": "string",
