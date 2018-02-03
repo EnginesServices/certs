@@ -22,14 +22,14 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-02-03T17:08:30+11:00"
+    "timestamp": "2018-02-03T18:02:31+11:00"
   },
   "software": {
     "base": {
       "name": "certs",
       "publisher_namespace": "EnginesSystem",
       "type_path": "certs",
-      "service_handle_field": "cert_name",
+      "service_handle_field": "common_name",
       "parent_image": "engines/servicebase",
       "deployment_type": "worker",
       "set_state": "running",
