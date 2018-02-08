@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-02-03T18:02:31+11:00"
+    "timestamp": "2018-02-08T17:30:23+11:00"
   },
   "software": {
     "base": {
@@ -136,11 +136,15 @@
       },
       {
         "name": "install_target",
-        "value": "Install target",
-        "immutable": true,
-        "ask_at_build_time": true,
         "input": {
-          "type": "string"
+          "type": "select",
+          "collection": {
+            "include_blank": true,
+            "items": {
+              "default": "Install as engine name",
+              "wap": "Use for https request on 443"
+            }
+          }
         }
       }
     ],
@@ -308,6 +312,14 @@
                   "user": "User generated"
                 }
               }
+            }
+          },
+          {
+            "name": "cert_src",
+            "input": {
+              "type": "string",
+              "label": "Cert source",
+              "comment": "conainer_type(s)/container_name/"
             }
           }
         ]
