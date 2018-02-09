@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-02-09T13:20:51+11:00"
+    "timestamp": "2018-02-09T14:03:18+11:00"
   },
   "software": {
     "base": {
@@ -197,7 +197,7 @@
           {
             "name": "owner",
             "input": {
-              "type": "boolean",
+              "type": "string",
               "title": "Owner",
               "comment": "required for generated certs"
             }
