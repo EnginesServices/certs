@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-02-09T13:17:24+11:00"
+    "timestamp": "2018-02-09T13:20:51+11:00"
   },
   "software": {
     "base": {
@@ -501,29 +501,6 @@
                   "user": "User generated"
                 }
               }
-            }
-          },
-          {
-            "name": "owner_type",
-            "input": {
-              "type": "select",
-              "comment": "required for generated certs",
-              "collection": {
-                "include_blank": true,
-                "items": {
-                  "system_service": "System Service",
-                  "service": "Service",
-                  "app": "Application"
-                }
-              }
-            }
-          },
-          {
-            "name": "owner",
-            "input": {
-              "type": "string",
-              "label": "Owner",
-              "comment": "required for generated certs"
             }
           }
         ],
