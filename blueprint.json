@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-02-08T17:30:23+11:00"
+    "timestamp": "2018-02-09T13:17:24+11:00"
   },
   "software": {
     "base": {
@@ -179,10 +179,27 @@
             }
           },
           {
-            "name": "store",
+            "name": "owner_type",
             "input": {
-              "type": "string",
-              "label": "Store"
+              "type": "select",
+              "label": "Owner type",
+              "comment": "required for generated certs",
+              "collection": {
+                "include_blank": true,
+                "items": {
+                  "system_service": "System service",
+                  "service": "Service",
+                  "app": "Application"
+                }
+              }
+            }
+          },
+          {
+            "name": "owner",
+            "input": {
+              "type": "boolean",
+              "title": "Owner",
+              "comment": "required for generated certs"
             }
           }
         ],
@@ -484,6 +501,29 @@
                   "user": "User generated"
                 }
               }
+            }
+          },
+          {
+            "name": "owner_type",
+            "input": {
+              "type": "select",
+              "comment": "required for generated certs",
+              "collection": {
+                "include_blank": true,
+                "items": {
+                  "system_service": "System Service",
+                  "service": "Service",
+                  "app": "Application"
+                }
+              }
+            }
+          },
+          {
+            "name": "owner",
+            "input": {
+              "type": "string",
+              "label": "Owner",
+              "comment": "required for generated certs"
             }
           }
         ],
