@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2018-02-09T14:03:18+11:00"
+    "timestamp": "2018-02-09T15:36:42+11:00"
   },
   "software": {
     "base": {
@@ -396,7 +396,6 @@
           },
           {
             "name": "hostname",
-            "mandatory": true,
             "input": {
               "type": "string",
               "title": "Hostname"
