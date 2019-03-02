@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-03-02T12:10:33+11:00"
+    "timestamp": "2019-03-03T10:03:51+11:00"
   },
   "software": {
     "base": {
@@ -636,7 +636,7 @@
         ]
       },
       {
-        "name": "get_csr_defailts",
+        "name": "get_csr_defaults",
         "return_type": "json"
       },
       {
