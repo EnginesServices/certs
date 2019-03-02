@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-03-03T10:13:46+11:00"
+    "timestamp": "2019-03-03T10:33:22+11:00"
   },
   "software": {
     "base": {
@@ -699,18 +699,19 @@
             }
           },
           {
-            "name": "host_name",
-            "input": {
-              "type": "string"
-            }
-          },
-          {
             "name": "alt_names",
             "input": {
-              "type": "string"
+              "type": "text",
+              "label": "Alternative names",
+              "comment": "one name per line"
             }
           }
         ]
+      },
+      {
+        "name": "download_csr",
+        "return_type": "file",
+        "return_file_name": "CSR"
       }
     ],
     "configurators": [
