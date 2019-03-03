@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-03-03T10:33:22+11:00"
+    "timestamp": "2019-03-03T11:19:22+11:00"
   },
   "software": {
     "base": {
@@ -627,7 +627,7 @@
         "return_type": "plain_text",
         "variables": [
           {
-            "name": "common_name",
+            "name": "csr_name",
             "mandatory": true,
             "input": {
               "type": "string"
@@ -711,7 +711,29 @@
       {
         "name": "download_csr",
         "return_type": "file",
-        "return_file_name": "CSR"
+        "return_file_name": "CSR",
+        "variables": [
+          {
+            "name": "csr_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      {
+        "name": "view_csr_details",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "csr_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          }
+        ]
       }
     ],
     "configurators": [
