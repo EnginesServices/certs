@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-03-03T11:19:22+11:00"
+    "timestamp": "2019-04-07T14:31:47+10:00"
   },
   "software": {
     "base": {
@@ -147,6 +147,12 @@
               "wap": "Use for https request on 443"
             }
           }
+        }
+      },
+      {
+        "name": "wild",
+        "input": {
+          "type": "checkbox_boolean"
         }
       }
     ],
@@ -731,6 +737,34 @@
             "mandatory": true,
             "input": {
               "type": "string"
+            }
+          }
+        ]
+      },
+      {
+        "name": "install_signed_cert",
+        "description": "Installs a certificate that signed a generated CSR",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "common_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "comment": "normally the domain name"
+            }
+          },
+          {
+            "name": "certificate",
+            "mandatory": true,
+            "input": {
+              "type": "text"
+            }
+          },
+          {
+            "name": "install_target",
+            "input": {
+              "type": "select_with_input"
             }
           }
         ]
