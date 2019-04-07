@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-04-07T16:20:05+10:00"
+    "timestamp": "2019-04-07T17:02:55+10:00"
   },
   "software": {
     "base": {
@@ -334,7 +334,8 @@
                 "items": {
                   "generated": "System generated",
                   "imported": "Imported",
-                  "user": "User generated"
+                  "user": "User generated",
+                  "external_ca": "Signed CSR"
                 }
               }
             }
