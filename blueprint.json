@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-04-07T14:31:47+10:00"
+    "timestamp": "2019-04-07T16:20:05+10:00"
   },
   "software": {
     "base": {
@@ -764,7 +764,16 @@
           {
             "name": "install_target",
             "input": {
-              "type": "select_with_input"
+              "type": "select_with_input",
+              "validation": {
+                "message": "default"
+              },
+              "collection": {
+                "items": {
+                  "default": "system default",
+                  "wap": "services/wap"
+                }
+              }
             }
           }
         ]
