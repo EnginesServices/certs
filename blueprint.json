@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-04-07T17:02:55+10:00"
+    "timestamp": "2019-05-05T08:30:23+10:00"
   },
   "software": {
     "base": {
@@ -246,7 +246,7 @@
             "name": "cert_type",
             "value": "import",
             "input": {
-              "type": "boolean"
+              "type": "hidden"
             }
           },
           {
@@ -307,7 +307,7 @@
         "variables": [
           {
             "name": "install_target",
-            "value": "default",
+            "value": "all",
             "mandatory": true,
             "input": {
               "type": "string",
@@ -438,6 +438,31 @@
             "input": {
               "type": "checkbox_boolean",
               "label": "Wild card"
+            }
+          },
+          {
+            "name": "usage",
+            "value": "server",
+            "input": {
+              "type": "select",
+              "collection": {
+                "items": {
+                  "server": "Server Identification",
+                  "client": "Client Identification"
+                }
+              }
+            }
+          },
+          {
+            "name": "CA",
+            "mandatory": true,
+            "input": {
+              "type": "select_with_input",
+              "collection": {
+                "items": {
+                  "system": "System"
+                }
+              }
             }
           }
         ]
@@ -764,17 +789,49 @@
           },
           {
             "name": "install_target",
+            "value": "all",
             "input": {
               "type": "select_with_input",
-              "validation": {
-                "message": "default"
-              },
               "collection": {
                 "items": {
-                  "default": "system default",
+                  "all": "system default",
                   "wap": "services/wap"
                 }
               }
+            }
+          }
+        ]
+      },
+      {
+        "name": "export_pkcs12",
+        "return_type": "file",
+        "variables": [
+          {
+            "name": "common_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "Domain Name"
+            }
+          },
+          {
+            "name": "cert_type",
+            "mandatory": true,
+            "input": {
+              "type": "select",
+              "collection": {
+                "items": {
+                  "import": "Imported",
+                  "generated": "Generated"
+                }
+              }
+            }
+          },
+          {
+            "name": "export_password",
+            "mandatory": true,
+            "input": {
+              "type": "password_with_confirmation"
             }
           }
         ]
