@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-05-05T11:07:31+10:00"
+    "timestamp": "2019-05-05T12:12:39+10:00"
   },
   "software": {
     "base": {
@@ -161,7 +161,7 @@
         "name": "fetch_cert",
         "label": "Retrieve certificate",
         "return_type": "file",
-        "return_file_name": "Engines_Builder(action_val(fetch_cert,cert_name)).pem",
+        "return_file_name": "_Engines_Builder(action_val(fetch_cert,cert_name)).pem",
         "variables": [
           {
             "name": "common_name",
@@ -807,7 +807,7 @@
       {
         "name": "export_pkcs12",
         "return_type": "file",
-        "return_file_name": "cert.pkcs12",
+        "return_file_name": "_Engines_Builder(action_val(export_pkcs12,common_name)).pem",
         "variables": [
           {
             "name": "common_name",
