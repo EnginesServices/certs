@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-05-05T10:46:59+10:00"
+    "timestamp": "2019-05-05T10:55:12+10:00"
   },
   "software": {
     "base": {
@@ -805,6 +805,7 @@
       {
         "name": "export_pkcs12",
         "return_type": "file",
+        "return_file_name": "cert.pkcs12",
         "variables": [
           {
             "name": "common_name",
