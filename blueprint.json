@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-05-05T08:30:23+10:00"
+    "timestamp": "2019-05-05T10:46:59+10:00"
   },
   "software": {
     "base": {
@@ -821,8 +821,9 @@
               "type": "select",
               "collection": {
                 "items": {
-                  "import": "Imported",
-                  "generated": "Generated"
+                  "imported": "Imported",
+                  "generated": "Generated",
+                  "external_ca": "From CSR"
                 }
               }
             }
