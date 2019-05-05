@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-05-05T10:55:12+10:00"
+    "timestamp": "2019-05-05T11:07:31+10:00"
   },
   "software": {
     "base": {
@@ -181,7 +181,8 @@
                 "items": {
                   "generated": "System generated",
                   "imported": "Imported",
-                  "user": "User generated"
+                  "user": "User generated",
+                  "external_ca": "From CSR"
                 }
               }
             }
@@ -612,7 +613,8 @@
                   "live": "Certificate in use",
                   "user": "User generated",
                   "imported": "Imported",
-                  "generated": "System generated"
+                  "generated": "System generated",
+                  "external_ca": "From CSR"
                 }
               }
             }
