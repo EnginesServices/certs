@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-05-05T12:14:48+10:00"
+    "timestamp": "2019-06-14T15:19:31+10:00"
   },
   "software": {
     "base": {
@@ -256,6 +256,12 @@
               "type": "string",
               "title": "Target service",
               "hint": "blank|service name|default"
+            }
+          },
+          {
+            "name": "optional_cn",
+            "input": {
+              "type": "string"
             }
           }
         ]
