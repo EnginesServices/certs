@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-15T07:36:49+10:00"
+    "timestamp": "2019-06-15T08:32:48+10:00"
   },
   "software": {
     "base": {
@@ -836,6 +836,33 @@
                   "user": "User"
                 }
               }
+            }
+          },
+          {
+            "name": "export_password",
+            "mandatory": true,
+            "input": {
+              "type": "password_with_confirmation"
+            }
+          }
+        ]
+      },
+      {
+        "name": "email_user_pkcs12",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "cert_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email_address",
+            "mandatory": true,
+            "input": {
+              "type": "string"
             }
           },
           {
