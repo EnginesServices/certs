@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-15T10:22:24+10:00"
+    "timestamp": "2019-06-16T12:22:13+10:00"
   },
   "software": {
     "base": {
@@ -153,6 +153,14 @@
         "name": "wild",
         "input": {
           "type": "checkbox_boolean"
+        }
+      },
+      {
+        "name": "ca_name",
+        "value": "system",
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string"
         }
       }
     ],
@@ -461,7 +469,7 @@
             }
           },
           {
-            "name": "CA",
+            "name": "ca_name",
             "mandatory": true,
             "input": {
               "type": "select_with_input",
@@ -870,6 +878,87 @@
             "mandatory": true,
             "input": {
               "type": "password_with_confirmation"
+            }
+          }
+        ]
+      },
+      {
+        "name": "list_ca",
+        "return_type": "json"
+      },
+      {
+        "name": "rm_ca",
+        "return_type": "json",
+        "variables": [
+          {
+            "name": "ca_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      {
+        "name": "create_ca",
+        "return_type": "json",
+        "variables": [
+          {
+            "name": "ca_name",
+            "mandatory": true,
+            "input": {
+              "type": "string",
+              "label": "CA Name"
+            }
+          },
+          {
+            "name": "domain_name",
+            "input": {
+              "type": "string",
+              "label": "Common Name"
+            }
+          },
+          {
+            "name": "person",
+            "input": {
+              "type": "string",
+              "label": "Person",
+              "title": "Defaults to value System CA"
+            }
+          },
+          {
+            "name": "organisation",
+            "input": {
+              "type": "string",
+              "label": "Organization",
+              "title": "Defaults to value System CA"
+            }
+          },
+          {
+            "name": "city",
+            "input": {
+              "type": "string",
+              "label": "City",
+              "title": "Defaults to value System CA"
+            }
+          },
+          {
+            "name": "state",
+            "input": {
+              "type": "string",
+              "label": "State",
+              "title": "Defaults to value System CA"
+            }
+          },
+          {
+            "name": "country",
+            "input": {
+              "type": "string",
+              "label": "Country 2 letter",
+              "title": "Defaults to value System CA",
+              "validation": {
+                "pattern": "[a-zA-Z][a-zA-Z]"
+              }
             }
           }
         ]
