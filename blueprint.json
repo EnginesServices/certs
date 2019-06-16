@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-16T12:22:13+10:00"
+    "timestamp": "2019-06-16T18:41:11+10:00"
   },
   "software": {
     "base": {
@@ -618,10 +618,11 @@
         "return_type": "plain_text",
         "variables": [
           {
-            "name": "cert_location",
+            "name": "cert_type",
             "mandatory": true,
             "input": {
               "type": "select",
+              "label": "Certificate type",
               "collection": {
                 "items": {
                   "live": "Certificate in use",
@@ -642,10 +643,10 @@
             }
           },
           {
-            "name": "consumer_type",
+            "name": "owner_type",
             "input": {
               "type": "select",
-              "title": "Consumer type",
+              "title": "Owner type",
               "comment": "required for generated or live certs",
               "collection": {
                 "include_blank": true,
@@ -657,10 +658,10 @@
             }
           },
           {
-            "name": "consumer_name",
+            "name": "owner_name",
             "input": {
               "type": "string",
-              "label": "Consumer name",
+              "label": "Owner name",
               "comment": "app or service name"
             }
           }
@@ -959,6 +960,33 @@
               "validation": {
                 "pattern": "[a-zA-Z][a-zA-Z]"
               }
+            }
+          }
+        ]
+      },
+      {
+        "name": "fetch_ca",
+        "return_type": "file",
+        "return_file_name": "ca_file.pem",
+        "variables": [
+          {
+            "name": "ca_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      {
+        "name": "ca_details",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "ca_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
             }
           }
         ]
