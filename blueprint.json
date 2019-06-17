@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-16T18:41:11+10:00"
+    "timestamp": "2019-06-17T11:01:01+10:00"
   },
   "software": {
     "base": {
@@ -218,6 +218,18 @@
               "title": "Owner",
               "comment": "required for generated certs"
             }
+          },
+          {
+            "name": "ca_name",
+            "input": {
+              "type": "select_with_input",
+              "label": "CA",
+              "collection": {
+                "items": {
+                  "system": "System"
+                }
+              }
+            }
           }
         ],
         "script": {
@@ -302,6 +314,18 @@
                 "items": {
                   "user": "User generated",
                   "imported": "Imported"
+                }
+              }
+            }
+          },
+          {
+            "name": "ca_name",
+            "input": {
+              "type": "select_with_input",
+              "label": "CA",
+              "collection": {
+                "items": {
+                  "system": "System"
                 }
               }
             }
@@ -473,6 +497,7 @@
             "mandatory": true,
             "input": {
               "type": "select_with_input",
+              "label": "CA",
               "collection": {
                 "items": {
                   "system": "System"
@@ -547,6 +572,18 @@
               "collection": {
                 "items": {
                   "user": "User generated"
+                }
+              }
+            }
+          },
+          {
+            "name": "ca_name",
+            "input": {
+              "type": "select_with_input",
+              "label": "CA",
+              "collection": {
+                "items": {
+                  "system": "System"
                 }
               }
             }
@@ -663,6 +700,18 @@
               "type": "string",
               "label": "Owner name",
               "comment": "app or service name"
+            }
+          },
+          {
+            "name": "ca_name",
+            "input": {
+              "type": "string",
+              "label": "CA",
+              "collection": {
+                "items": {
+                  "system": "System"
+                }
+              }
             }
           }
         ]
@@ -853,6 +902,18 @@
             "input": {
               "type": "password_with_confirmation"
             }
+          },
+          {
+            "name": "ca_name",
+            "input": {
+              "type": "string",
+              "label": "CA",
+              "collection": {
+                "items": {
+                  "system": "System"
+                }
+              }
+            }
           }
         ]
       },
@@ -879,6 +940,18 @@
             "mandatory": true,
             "input": {
               "type": "password_with_confirmation"
+            }
+          },
+          {
+            "name": "ca_name",
+            "input": {
+              "type": "select_with_input",
+              "label": "CA",
+              "collection": {
+                "items": {
+                  "system": "System"
+                }
+              }
             }
           }
         ]
@@ -990,6 +1063,11 @@
             }
           }
         ]
+      },
+      {
+        "name": "ca_certs",
+        "label": "List certs signed by CA",
+        "return_type": "json"
       }
     ],
     "configurators": [
