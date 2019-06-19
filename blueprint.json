@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-17T11:03:47+10:00"
+    "timestamp": "2019-06-19T10:53:32+10:00"
   },
   "software": {
     "base": {
@@ -494,7 +494,7 @@
             }
           },
           {
-            "name": "usage",
+            "name": "cert_usage",
             "value": "server",
             "input": {
               "type": "select",
@@ -967,6 +967,13 @@
                 }
               }
             }
+          },
+          {
+            "name": "message",
+            "input": {
+              "type": "text",
+              "label": "Email message body"
+            }
           }
         ]
       },
@@ -1082,6 +1089,39 @@
         "name": "ca_certs",
         "label": "List certs signed by CA",
         "return_type": "json"
+      },
+      {
+        "name": "view_ca_crl",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "ca_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      {
+        "name": "verify_cert",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "ca_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "certificate",
+            "mandatory": true,
+            "input": {
+              "type": "text"
+            }
+          }
+        ]
       }
     ],
     "configurators": [
