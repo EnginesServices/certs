@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-19T10:53:32+10:00"
+    "timestamp": "2019-06-19T11:19:39+10:00"
   },
   "software": {
     "base": {
@@ -1088,7 +1088,16 @@
       {
         "name": "ca_certs",
         "label": "List certs signed by CA",
-        "return_type": "json"
+        "return_type": "json",
+        "variables": [
+          {
+            "name": "ca_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
+            }
+          }
+        ]
       },
       {
         "name": "view_ca_crl",
