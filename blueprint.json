@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-24T13:31:43+10:00"
+    "timestamp": "2019-06-24T14:22:48+10:00"
   },
   "software": {
     "base": {
@@ -362,14 +362,12 @@
             "name": "ca_name",
             "mandatory": true,
             "input": {
-              "type": "select",
-              "label": "Certificate type",
-              "hint": "imported| ctype/cname/  ",
+              "type": "select_with_input",
+              "label": "CA name",
               "collection": {
                 "items": {
-                  "generated": "System generated",
+                  "system": "System generated",
                   "imported": "Imported",
-                  "user": "User generated",
                   "external_ca": "Signed CSR"
                 }
               }
@@ -533,16 +531,16 @@
         "enable_logging": true,
         "variables": [
           {
-            "name": "cert_type",
+            "name": "ca_name",
             "mandatory": true,
             "input": {
-              "type": "select",
+              "type": "select_with_input",
               "label": "Certificate type",
               "collection": {
                 "items": {
-                  "generated": "System generated",
+                  "system": "System generated",
                   "imported": "Imported",
-                  "user": "User generated"
+                  "external_ca": "Signed CSR"
                 }
               }
             }
