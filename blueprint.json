@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-24T11:11:44+10:00"
+    "timestamp": "2019-06-24T12:31:15+10:00"
   },
   "software": {
     "base": {
@@ -427,7 +427,7 @@
             }
           },
           {
-            "name": "State",
+            "name": "state",
             "input": {
               "type": "string",
               "label": "State"
