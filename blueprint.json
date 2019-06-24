@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-24T12:31:15+10:00"
+    "timestamp": "2019-06-24T13:31:43+10:00"
   },
   "software": {
     "base": {
@@ -359,25 +359,7 @@
         "enable_logging": true,
         "variables": [
           {
-            "name": "install_target",
-            "value": "all",
-            "mandatory": true,
-            "input": {
-              "type": "string",
-              "label": "Target",
-              "hint": "services|system_services|apps/container_name | all"
-            }
-          },
-          {
-            "name": "common_name",
-            "mandatory": true,
-            "input": {
-              "type": "string",
-              "label": "Certificate name"
-            }
-          },
-          {
-            "name": "cert_type",
+            "name": "ca_name",
             "mandatory": true,
             "input": {
               "type": "select",
@@ -394,11 +376,34 @@
             }
           },
           {
-            "name": "cert_src",
+            "name": "common_name",
+            "mandatory": true,
             "input": {
               "type": "string",
-              "label": "Cert source",
-              "comment": "conainer_type(s)/container_name/"
+              "label": "Certificate name"
+            }
+          },
+          {
+            "name": "install_target_type",
+            "value": "all",
+            "mandatory": true,
+            "input": {
+              "type": "select",
+              "label": "Target Type",
+              "hint": "services|system_services|apps/container_name | all",
+              "collection": {
+                "items": {
+                  "service": "Service",
+                  "app": "Application"
+                }
+              }
+            }
+          },
+          {
+            "name": "install_target_name",
+            "input": {
+              "type": "string",
+              "label": "Target Name"
             }
           }
         ]
