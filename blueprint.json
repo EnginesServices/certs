@@ -22,7 +22,7 @@
         "label": "certs"
       }
     },
-    "timestamp": "2019-06-19T11:19:39+10:00"
+    "timestamp": "2019-06-24T11:11:44+10:00"
   },
   "software": {
     "base": {
@@ -1128,6 +1128,19 @@
             "mandatory": true,
             "input": {
               "type": "text"
+            }
+          }
+        ]
+      },
+      {
+        "name": "regenerate_crl",
+        "return_type": "plain_text",
+        "variables": [
+          {
+            "name": "ca_name",
+            "mandatory": true,
+            "input": {
+              "type": "string"
             }
           }
         ]
